@@ -1,0 +1,8 @@
+# ignore custom op build artifacts
+*.so
+
+# ignore generated files and directories
+__*
+ckpts/
+data/
+logs/
