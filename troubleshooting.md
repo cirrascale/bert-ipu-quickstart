@@ -2,7 +2,7 @@
 This document provides known bugs and common errors found when running the BERT IPU quickstart.
 
 ## Error:
-This error occurs at the tail end of trainng Bert on the SQuAD dataset in the validation step.
+This error occurs at the tail end of training Bert on the SQuAD dataset during the validation step.
 
 ```bash
 Traceback (most recent call last):
