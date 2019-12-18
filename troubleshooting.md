@@ -78,7 +78,7 @@ FileNotFoundError: [Errno 2] No such file or directory: 'uncased_L-12_H-768_A-12
 ```
 
 ## Solution:
-Download the zip file "uncased_L-12_H-768_A-12" from gogole BERT git repo (https://github.com/google-research/bert#Pre-trained-models). Place the unzipped directory at the expected default path "data/ckpts/", or change the "vocab_file" and "tf_checkpoint" variables in the "configs/squad_base.json" file to your download path.
+Download the zip file "uncased_L-12_H-768_A-12" from google BERT git repo (https://github.com/google-research/bert#Pre-trained-models). Place the unzipped directory at the expected default path "data/ckpts/", or change the "vocab_file" and "tf_checkpoint" variables in the "configs/squad_base.json" file to your download path.
 
 ```bash
 mkdir -p data/ckpts
