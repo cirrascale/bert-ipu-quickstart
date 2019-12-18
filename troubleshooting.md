@@ -1,4 +1,26 @@
 # Troubleshooting
+This document provides known bugs and common errors found when running the BERT IPU quickstart.
+
+## Error:
+This error occurs at the tail end of trainng Bert on the SQuAD dataset in the validation step.
+
+```bash
+Traceback (most recent call last):
+  File "bert.py", line 751, in <module>
+    main(args)
+  File "bert.py", line 722, in main
+    main(utils.get_validation_args(args))
+  File "bert.py", line 695, in main
+    session, anchors = bert_inference_session(model, args, data_flow, losses, device)
+  File "bert.py", line 252, in bert_inference_session
+    userOptions=options)
+  File "/opt/gc/poplar/poplar_sdk-ubuntu_18_04-1.0.49-3bb7d0c32f/popart-ubuntu_18_04-1.0.49-e64013ecc5/python/popart/session.py", line 87, in __init__
+    inputShapeInfo, userOptions, passes)
+popart_core.popart_exception: For pipelining, depth (batchesPerStep) must be at least 4 for 4 IPUs
+```
+
+## Solution:
+This is a known bug that requires an SDK update from Graphcore to remedy. Therefore, currently there is no fix, but a fix will be made in the next Graphcore SDK release. (Current release of SDK as of testing is 1.0.49)
 
 ## Error:
 This error occurs when the IPUs have not been reset after a system shutdown or reboot.
