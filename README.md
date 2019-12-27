@@ -10,7 +10,7 @@ To get started with your very own Graphcore IPU server on Cirrascale Cloud, plea
 Install software packages we will use for this quickstart.
 ```bash
 sudo apt update
-sudo apt install virtualenv git wget curl unzip -y
+sudo apt install virtualenv libboost-dev git wget curl unzip -y
 ```
 
 
@@ -70,7 +70,7 @@ rm uncased_L-12_H-768_A-12.zip
 ## Fine-tune training using the SQuAD 1.1 dataset
 
 ### Download the SQuAD dataset
-This quickstart uses the SquAD 1.1 benchmark to evaluate and analyze the performance of the model. To use this benchmark, download train-v1.1.json, dev-v1.1.json, and evaluate-v1.1.json using the following commands:
+This quickstart uses the SquAD 1.1 dataset to evaluate and analyze the performance of the model. To use this dataset, download train-v1.1.json, dev-v1.1.json, and evaluate-v1.1.py using the following commands:
 ```bash
 mkdir -p data/squad
 
@@ -88,11 +88,6 @@ python bert.py --config configs/squad_base.json
 ### View training logs with TensorBoard
 ```bash
 tensorboard --logdir logs
-```
-
-### Evaluate the model
-```bash
-python bert.py --config configs/squad_base_inference.json
 ```
 
 ### Verify your results
