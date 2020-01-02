@@ -42,7 +42,7 @@ Create the python virtual environment and install required python packages.
 virtualenv gc_virtualenv -p python3.6
 source gc_virtualenv/bin/activate
 
-cd bert-ipu-tutorial/
+cd bert-ipu-quickstart/bert/
 pip install -r requirements.txt
 ```
 
