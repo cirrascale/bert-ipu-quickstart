@@ -3,6 +3,6 @@
 
 # ignore generated files and directories
 __*
-ckpts/
-data/
-logs/
+bert/ckpts/
+bert/data/
+bert/logs/
