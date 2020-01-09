@@ -7,5 +7,7 @@ bert/ckpts/
 bert/data/
 bert/logs/
 
-# ignore poplar-sdk
-poplar_sdk-*
+bert/!*.json
+bert/*.gp
+bert/!__*.py
+bert/test_results

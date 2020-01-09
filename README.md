@@ -10,7 +10,7 @@ To get started with your very own Graphcore IPU server on Cirrascale Cloud, plea
 Install software packages we will use for this quickstart.
 ```bash
 sudo apt update
-sudo apt install virtualenv libboost-dev git wget curl unzip -y
+sudo apt install virtualenv libboost-dev git wget curl unzip make g++ -y
 ```
 
 
@@ -95,6 +95,56 @@ When the training script completes, you should see results similar to the follow
 ```bash
 ***** Eval results *****
 INFO F1 Score: 88.41249612335034 | Exact Match: 81.2488174077578
+```
+
+
+## Docker Container for bert-ipu-quickstart
+### Before Building
+#### Install Docker
+Install docker by running the "Install_Docker.sh" script.
+```bash
+cd bert-ipu-quickstart/docker
+
+chmod +x Install_Docker.sh
+
+./Install_Docker.sh
+
+# logout and back in for the docker user group to register
+exit
+```
+
+#### Copy latest Poplar SDK
+Copy the latest poplar SDK to the bert-ipu-quickstart directory.
+Can also be downloaded at https://downloads.graphcore.ai/ .
+```bash
+poplar_SDK_path="/opt/gc/poplar/poplar_sdk-*"
+
+cp -r $poplar_SDK_path ~/bert-ipu-quickstart/
+```
+
+### Build Container
+Change to the docker directory and run the "Build_Container.sh" script.
+```bash
+cd bert-ipu-quickstart/docker
+
+chmod +x Build_Container.sh
+
+./Build_Container.sh
+```
+
+### Run created container
+This command will run the created container in interactive mode with volume mounts attached.
+Model checkpoints and logs will be saved to your "data_storage" path.
+```bash
+data_storage="/mnt/data"
+
+gc-docker -- --rm -it -v $data_storage/ckpts/:/workspace/bert-ipu-quickstart/bert/ckpts/ -v $data_storage/logs/:/workspace/bert-ipu-quickstart/bert/logs/ cirrascale/bert-ipu-quickstart:v1.0
+
+# verify all IPUs are accessible
+gc-monitor
+
+# execute training inside the container
+python bert.py --config configs/squad_base.json
 ```
 
 
