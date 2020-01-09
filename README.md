@@ -133,11 +133,12 @@ chmod +x Build_Container.sh
 ```
 
 ### Run created container
-This command will run the created container in interactive mode with volume mounts attached.
-Model checkpoints and logs will be saved to your "data_storage" path.
+This command will run the created container in interactive mode with two volume mounts attached.
+Model checkpoints and logs will be saved to your "data_storage" path at /ckpts and /logs.
 ```bash
 data_storage="/mnt/data"
 
+# -- denotes all IPUs will be attached to the container.
 gc-docker -- --rm -it -v $data_storage/ckpts/:/workspace/bert-ipu-quickstart/bert/ckpts/ -v $data_storage/logs/:/workspace/bert-ipu-quickstart/bert/logs/ cirrascale/bert-ipu-quickstart:v1.0
 
 # verify all IPUs are accessible
