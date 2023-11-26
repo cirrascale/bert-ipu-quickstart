@@ -7,3 +7,6 @@ future==0.17.1
 tensorflow==1.14.0
 onnx==1.5.0
 tqdm
+grpcio>=1.53.2 # not directly required, pinned by Snyk to avoid a vulnerability
+setuptools>=65.5.1 # not directly required, pinned by Snyk to avoid a vulnerability
+werkzeug>=2.2.3 # not directly required, pinned by Snyk to avoid a vulnerability
