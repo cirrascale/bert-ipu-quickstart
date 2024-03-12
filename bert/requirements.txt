@@ -1,9 +1,12 @@
-numpy==1.17.1
+numpy==1.22.2
 scipy==1.3.1
 tensorboard==1.14.0
-torch==1.2.0
+torch==1.13.1
 nltk==3.4.5
-future==0.17.1
+future==0.18.3
 tensorflow==1.14.0
 onnx==1.5.0
 tqdm
+grpcio>=1.53.2 # not directly required, pinned by Snyk to avoid a vulnerability
+setuptools>=65.5.1 # not directly required, pinned by Snyk to avoid a vulnerability
+werkzeug>=2.2.3 # not directly required, pinned by Snyk to avoid a vulnerability
